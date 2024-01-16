@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emprunt de livre</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="icon" th:href="@{img/livress.png}" >
 </head>
 <body>
     <header>
-        <h1>Emprunt de livre</h1>
+        <div th:replace="~{navbar :: titre}"></div>
     </header>
     <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/catalogue">Catalogue</a></li>
-            <li><a href ="/emprunt">Emprunter un livre</a></li>
-        </ul>
+        <div th:replace="~{navbar :: menu}"></div>
     </nav>
+    <h1>Emprunt de livre</h1>
     <main>
+        
+
+        <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
         <br>
         <form action="/submit" method="post">
             <label for="nomEmprunteur">Nom de l'emprunteur:</label>
-            <input type="text" id="nomEmprunteur" name="nomEmprunteur" required>
+            <input type="text" id="nomEmprunteur" name="nomEmprunteur" >
     
             <label for="numeroEmprunteur">Numéro d'emprunteur:</label>
-            <input type="text" id="numeroEmprunteur" name="numeroEmprunteur" required>
+            <input type="text" id="numeroEmprunteur" name="numeroEmprunteur" >
     
             <label for="titreLivre">Titre du livre emprunté:</label>
-            <input type="text" id="titreLivre" name="titreLivre" required>
+            <input type="text" id="titreLivre" name="titreLivre" >
     
             <label for="editionLivre">Édition du livre:</label>
-            <input type="text" id="editionLivre" name="editionLivre" required>
+            <input type="text" id="editionLivre" name="editionLivre" >
     
             <label for="dateDebutEmprunt">Date de début d'emprunt:</label>
-            <input type="date" id="dateDebutEmprunt" name="dateDebutEmprunt" required>
+            <input type="date" id="dateDebutEmprunt" name="dateDebutEmprunt" >
     
             <input type="submit" value="submit">
         </form>
     </main>
     <footer>
-        <!-- Contenu du pied de page -->
+        <div th:replace="~{navbar :: foot}"></div>
     </footer>
 </body>
 </html>

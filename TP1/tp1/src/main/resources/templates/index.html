@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bibliothèque du Savoir</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="icon" th:href="@{img/livress.png}" >
 </head>
 <body>
-    <h1>Welcome to La Bibliothèque du Savoir</h1>
-    <p>This is the homepage of La Bibliothèque du Savoir. It is a simple application to learn to manage a librairy with Spring Boot</p>
+    <header>
+        <div th:replace="~{navbar :: titre}"></div>
+    </header>
+    
     
     <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/catalogue">Catalogue</a></li>
-            <li><a href ="/emprunt">Emprunter un livre</a></li>
-        </ul>
+        <div th:replace="~{navbar :: menu}"></div>
     </nav>
+
+    <h1>La Bibliothèque du Savoir</h1>
+
     <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
+    <footer>
+        <div th:replace="~{navbar :: foot}"></div>
+    </footer>
 </body>
 </html>

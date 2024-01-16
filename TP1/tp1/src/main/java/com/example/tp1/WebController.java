@@ -1,6 +1,8 @@
 package com.example.tp1;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,14 @@ public class WebController {
 
     @RequestMapping("/catalogue")
     public String catalogue(Model model) {  //model = partie back
+        // Création d'une liste de livres fictive
+        List<Livre> livres = new ArrayList<>();
+        livres.add(new Livre("Titre du Livre 1", "Auteur 1", "Édition 1", "Description du Livre 1"));
+        livres.add(new Livre("Titre du Livre 2", "Auteur 2", "Édition 2", "Description du Livre 2"));
+        livres.add(new Livre("Titre du Livre 3", "Auteur 3", "Édition 3", "Description du Livre 3"));
+
+        // Ajout de la liste de livres au modèle
+        model.addAttribute("livres", livres);
         return "catalogue"; // index = partie front
     }
 
@@ -46,5 +56,6 @@ public class WebController {
 
         return "confirmation";
     }
+
  
 }

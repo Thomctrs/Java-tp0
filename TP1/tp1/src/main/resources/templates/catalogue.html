@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="icon" th:href="@{img/livress.png}" >
 </head>
 <body>
-    <h1>Catalogue</h1>
+    <header>
+        <div th:replace="~{navbar :: titre}"></div>
+    </header>
     
     <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/catalogue">Catalogue</a></li>
-            <li><a href ="/emprunt">Emprunter un livre</a></li>
-        </ul>
+        <div th:replace="~{navbar :: menu}"></div>
     </nav>
+
+    <h1>Catalogue</h1>
     <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
     <main>
-    <div class="book">
-        <h2>Titre du Livre 1</h2>
-        <p><strong>Auteur:</strong> Nom de l'auteur</p>
-        <p><strong>Édition:</strong> Nom de l'édition</p>
-        <p>Description courte du livre.</p>
-    </div>
-
-    <div class="book">
-        <h2>Titre du Livre 2</h2>
-        <p><strong>Auteur:</strong> Nom de l'auteur</p>
-        <p><strong>Édition:</strong> Nom de l'édition</p>
-        <p>Description courte du livre.</p>
-    </div>
-
-    <!-- Ajoutez d'autres livres selon vos besoins -->
+        <div th:each="livre : ${livres}" class="book">
+            <h2 th:text="${livre.titre}"></h2>
+            <p th:text="'Auteur: ' + ${livre.auteur}"></p>
+            <p th:text="'Édition: ' + ${livre.edition}"></p>
+            <p th:text="${livre.description}"></p>
+            <br>
+        </div>
 
 </main>
 
 <footer>
-    <p class="right">&copy; 2024 La Bibliothèque du Savoir. Tous droits réservés.</p>
+    <div th:replace="~{navbar :: foot}"></div>
 </footer>
 
 </body>

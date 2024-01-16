@@ -1,0 +1,17 @@
+<div th:fragment= "menu" >
+    <ul>
+        <li><a th:href="@{/}">Accueil</a></li>
+        <li><a th:href="@{/catalogue}">Catalogue</a></li>
+        <li><a th:href ="@{/emprunt}">Emprunter un livre</a></li>
+    </ul>
+</div>
+
+<div th:fragment="foot" class="right">
+        <p>&copy; 2024 La Bibliothèque du Savoir. Tous droits réservés.</p>
+</div>
+
+<div th:fragment="titre">
+    <h1 id="titre_biblio">Welcome to La Bibliothèque du Savoir</h1>
+    <p class = "description">This is the homepage of La Bibliothèque du Savoir. It is a simple application to learn to manage a librairy with Spring Boot</p>
+</div>
+

@@ -5,31 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="icon" th:href="@{img/livress.png}" >
 </head>
 <body>
     <header>
-        <h1>Confirmation</h1>
+        <div th:replace="~{navbar :: titre}"></div>
     </header>
     <nav>
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/catalogue">Catalogue</a></li>
-            <li><a href ="/emprunt">Emprunter un livre</a></li>
-        </ul>
+        <div th:replace="~{navbar :: menu}"></div>
+        
     </nav>
+    
     <main>
+        <h1>Confirmation</h1>
+        <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
         <p>Merci pour votre confirmation!</p>
         <p>Nous avons bien reçu votre demande.</p>
-        <div>
-        <p>Votre nom est : <span th:text="${nomEmprunteur}"></span></p>
-        <p>Votre numero d'emprunteur est  <span th:text="${numeroEmprunteur}"></span></p>
-        <p>Vous avez emprunté : <span th:text="${titreLivre}"></span></p>
-        <p>aux éditions <span th:text="${editionLivre}"></span></p>
-        <p>à partir du <span th:text="${dateDebutEmprunt}"></span></p>
+    
+        <h1>Confirmation d'Emprunt</h1>
+        <div class="warning">
+            <p th:if="${nomEmprunteur == null or nomEmprunteur.isEmpty()}" class ="error">Champ non rempli: Nom de l'emprunteur</p>
+            <p th:if="${numeroEmprunteur == null or numeroEmprunteur.isEmpty()}" class ="error">Champ non rempli: Numéro d'emprunteur</p>
+            <p th:if="${titreLivre == null or titreLivre.isEmpty()}" class ="error">Champ non rempli: Titre du livre emprunté</p>
+            <p th:if="${editionLivre == null or editionLivre.isEmpty()}" class ="error">Champ non rempli: Édition du livre</p>
+            <p th:if="${dateDebutEmprunt == null}" class ="error">Champ non rempli: Date de début d'emprunt</p>
         </div>
+
+        <h3>Récapitulatif :</h3>
+
+        <div class="recap">
+            <p><strong>Nom de l'emprunteur:</strong> <span th:if="${nomEmprunteur != null}" th:text="${nomEmprunteur}"></span></p>
+            <p><strong>Numéro d'emprunteur:</strong> <span th:if="${numeroEmprunteur != null}" th:text="${numeroEmprunteur}"></span></p>
+            <p><strong>Titre du livre emprunté:</strong> <span th:if="${titreLivre != null}" th:text="${titreLivre}"></span></p>
+            <p><strong>Édition du livre:</strong> <span th:if="${editionLivre != null}" th:text="${editionLivre}"></span></p>
+            <p><strong>Date de début d'emprunt:</strong> <span th:if="${dateDebutEmprunt != null}" th:text="${dateDebutEmprunt}"></span></p>
+        </div>
+
     </main>
     <footer>
-        <p>&copy; 2022 Mon Entreprise. Tous droits réservés.</p>
+        <div th:replace="~{navbar :: foot}"></div>
     </footer>
 </body>
 </html>
