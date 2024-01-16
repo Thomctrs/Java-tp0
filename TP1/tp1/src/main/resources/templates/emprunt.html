@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emprunt de livre</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Emprunt de livre</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/catalogue">Catalogue</a></li>
+            <li><a href ="/emprunt">Emprunter un livre</a></li>
+        </ul>
+    </nav>
+    <main>
+        <br>
+        <form action="/submit" method="post">
+            <label for="nomEmprunteur">Nom de l'emprunteur:</label>
+            <input type="text" id="nomEmprunteur" name="nomEmprunteur" required>
+    
+            <label for="numeroEmprunteur">Numéro d'emprunteur:</label>
+            <input type="text" id="numeroEmprunteur" name="numeroEmprunteur" required>
+    
+            <label for="titreLivre">Titre du livre emprunté:</label>
+            <input type="text" id="titreLivre" name="titreLivre" required>
+    
+            <label for="editionLivre">Édition du livre:</label>
+            <input type="text" id="editionLivre" name="editionLivre" required>
+    
+            <label for="dateDebutEmprunt">Date de début d'emprunt:</label>
+            <input type="date" id="dateDebutEmprunt" name="dateDebutEmprunt" required>
+    
+            <input type="submit" value="submit">
+        </form>
+    </main>
+    <footer>
+        <!-- Contenu du pied de page -->
+    </footer>
+</body>
+</html>

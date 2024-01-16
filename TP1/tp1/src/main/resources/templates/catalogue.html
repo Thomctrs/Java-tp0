@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalogue</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <h1>Catalogue</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/catalogue">Catalogue</a></li>
+            <li><a href ="/emprunt">Emprunter un livre</a></li>
+        </ul>
+    </nav>
+    <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
+    <main>
+    <div class="book">
+        <h2>Titre du Livre 1</h2>
+        <p><strong>Auteur:</strong> Nom de l'auteur</p>
+        <p><strong>Édition:</strong> Nom de l'édition</p>
+        <p>Description courte du livre.</p>
+    </div>
+
+    <div class="book">
+        <h2>Titre du Livre 2</h2>
+        <p><strong>Auteur:</strong> Nom de l'auteur</p>
+        <p><strong>Édition:</strong> Nom de l'édition</p>
+        <p>Description courte du livre.</p>
+    </div>
+
+    <!-- Ajoutez d'autres livres selon vos besoins -->
+
+</main>
+
+<footer>
+    <p class="right">&copy; 2024 La Bibliothèque du Savoir. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>La Bibliothèque du Savoir</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <h1>Welcome to La Bibliothèque du Savoir</h1>
+    <p>This is the homepage of La Bibliothèque du Savoir. It is a simple application to learn to manage a librairy with Spring Boot</p>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/catalogue">Catalogue</a></li>
+            <li><a href ="/emprunt">Emprunter un livre</a></li>
+        </ul>
+    </nav>
+    <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
+</body>
+</html>

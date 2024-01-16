@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Confirmation</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/catalogue">Catalogue</a></li>
+            <li><a href ="/emprunt">Emprunter un livre</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>Merci pour votre confirmation!</p>
+        <p>Nous avons bien reçu votre demande.</p>
+        <div>
+        <p>Votre nom est : <span th:text="${nomEmprunteur}"></span></p>
+        <p>Votre numero d'emprunteur est  <span th:text="${numeroEmprunteur}"></span></p>
+        <p>Vous avez emprunté : <span th:text="${titreLivre}"></span></p>
+        <p>aux éditions <span th:text="${editionLivre}"></span></p>
+        <p>à partir du <span th:text="${dateDebutEmprunt}"></span></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2022 Mon Entreprise. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
