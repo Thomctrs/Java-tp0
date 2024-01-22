@@ -8,7 +8,7 @@
     <link rel="icon" th:href="@{img/livress.png}" >
 </head>
 <body>
-    <header>
+    <header >
         <div th:replace="~{navbar :: titre}"></div>
     </header>
     
@@ -16,7 +16,7 @@
         <div th:replace="~{navbar :: menu}"></div>
     </nav>
 
-    <h1>Catalogue</h1>
+    <h1 id="titre_biblio">Catalogue</h1>
     <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
     <main>
         <div th:each="livre : ${livres}" class="book">

@@ -19,6 +19,9 @@ body {
 header {
     text-align: center;
     padding: 30px 0;
+    background-image: url('img/ciel.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 h1 {
@@ -63,6 +66,10 @@ img {
     background-color: #348ba8; /* Changer la couleur de fond */
     width: 30%;
    
+}
+
+.tete{
+    background-color: #416379;
 }
 
 .error {
@@ -116,8 +123,9 @@ img {
 
 nav {
     text-align: center;
-    margin-top: 20px;
-    background-color: #141a21;
+    padding: 20px 0;
+    background-color: #22272e;
+    margin-bottom: 40px;
 }
 
 nav ul {
