@@ -23,7 +23,12 @@
         <p>Nous avons bien reçu votre demande.</p>
     
         <h1>Confirmation d'Emprunt</h1>
-        <div class="warning">
+        <div th:if ="${nomEmprunteur == null or nomEmprunteur.isEmpty() or
+            numeroEmprunteur == null or numeroEmprunteur.isEmpty() or
+            titreLivre == null or titreLivre.isEmpty() or
+            editionLivre == null or editionLivre.isEmpty() or
+            dateDebutEmprunt == null}" class="warning">
+            <p class="error"> Vous n'avez pas rempli tous les champs requis.</p>
             <p th:if="${nomEmprunteur == null or nomEmprunteur.isEmpty()}" class ="error">Champ non rempli: Nom de l'emprunteur</p>
             <p th:if="${numeroEmprunteur == null or numeroEmprunteur.isEmpty()}" class ="error">Champ non rempli: Numéro d'emprunteur</p>
             <p th:if="${titreLivre == null or titreLivre.isEmpty()}" class ="error">Champ non rempli: Titre du livre emprunté</p>

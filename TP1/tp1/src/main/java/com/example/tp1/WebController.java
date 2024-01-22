@@ -24,13 +24,14 @@ public class WebController {
 
     @RequestMapping("/catalogue")
     public String catalogue(Model model) {  //model = partie back
-        // Création d'une liste de livres fictive
+        // list de livres
         List<Livre> livres = new ArrayList<>();
         livres.add(new Livre("Titre du Livre 1", "Auteur 1", "Édition 1", "Description du Livre 1"));
         livres.add(new Livre("Titre du Livre 2", "Auteur 2", "Édition 2", "Description du Livre 2"));
         livres.add(new Livre("Titre du Livre 3", "Auteur 3", "Édition 3", "Description du Livre 3"));
+        livres.add(new Livre("Titre du Livre 4", "Auteur 4", "Édition 4", "Description du Livre 4"));
 
-        // Ajout de la liste de livres au modèle
+        
         model.addAttribute("livres", livres);
         return "catalogue"; // index = partie front
     }
