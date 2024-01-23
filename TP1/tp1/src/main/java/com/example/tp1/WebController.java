@@ -52,8 +52,10 @@ public class WebController {
         model.addAttribute("livres", livres);
         model.addAttribute("emprunteurs", emprunteurs);
 
-        return "formulaire";
+        return "emprunt";
     }
+
+
     @PostMapping("/emprunt")
     public String saveBooking(
         @RequestParam("choix_emprunteur") Long id_emprunteur,

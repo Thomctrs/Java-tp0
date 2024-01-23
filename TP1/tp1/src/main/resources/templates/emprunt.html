@@ -20,7 +20,7 @@
 
         <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
         <br>
-        <form action="/emprunt" method="post">
+        <form action="/formulaire" method="post">
             <h2>Nom de l'emprunteur</h2>
             <select name="choix_emprunteur" id="choix_emprunteur">
                 <option th:each="emprunteur : ${emprunteurs}" th:value = "${emprunteur.id}" th:text="${emprunteur.nom}"></option>
