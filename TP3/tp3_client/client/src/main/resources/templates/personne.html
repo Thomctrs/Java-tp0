@@ -1,0 +1,16 @@
+<!-- FILEPATH: /c:/Users/thoma/Documents/BIOST_M1/semestre_8/DP DEV/spring/java/TP3/tp3_client/client/src/main/resources/templates/formulaire.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>personne</title>
+</head>
+<body>
+    <section th:object="${personne}">
+        <h1 th:text="${personne.nom}"></h1>
+        <p th:text="${personne.email}"></p>
+        <p><a th:href="@{/personnes/maj/{id}(id=${personne.id})}">modifier</a></p>
+        <p><a th:href="@{/personnes/del/{id}(id=${personne.id})}">supprimer</a></p>
+    </section>
+</body>
+</html>

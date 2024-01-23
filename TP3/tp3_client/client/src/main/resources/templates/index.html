@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des personnes</title>
+</head>
+<body>
+    <h1>Liste des personnes</h1>
+    <ul>
+        <li th:each="personne:${personnes}">
+            <a th:href="@{/personnes/{id}(id=${personne.id})}" th:text="${personne.nom} + ' - ' + ${personne.email}"></a>
+        </li>
+    </ul>
+    <a href="./personnes/form/add">Nouvelle personne</a>
+</body>
+</html>
+

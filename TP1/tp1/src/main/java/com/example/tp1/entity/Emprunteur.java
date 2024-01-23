@@ -1,7 +1,14 @@
-package com.example.tp1;
+package com.example.tp1.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "emprunteurs")
 public class Emprunteur {
-    private String id;
+    private @Id @GeneratedValue Long id;
     private String nom;
     private String numero;
    
@@ -10,13 +17,13 @@ public class Emprunteur {
     public Emprunteur() {
     }
 
-    public Emprunteur(String id, String nom, String numero){
-        this.id = id;
+    public Emprunteur( String nom, String numero){
+        
         this.nom = nom;
         this.numero = numero;
     }
     // Getters
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -29,7 +36,7 @@ public class Emprunteur {
     }
 
     // Setters
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

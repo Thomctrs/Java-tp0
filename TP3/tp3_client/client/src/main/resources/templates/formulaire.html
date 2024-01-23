@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>formulaire</title>
+</head>
+<body>
+    <h1>Formulaire personne</h1>
+    <form method="post" th:object="${personne}">
+        <label>nom</label>
+        <input type="text" name="nom" id="nom" th:field="${personne.nom}">
+        <label>email</label>
+        <input type="text" name="email" id="email" th:field="${personne.email}">
+        <button type="submit">Valider</button>
+    </form>
+    <a href="/">Accueil</a>
+</body>
+</html>

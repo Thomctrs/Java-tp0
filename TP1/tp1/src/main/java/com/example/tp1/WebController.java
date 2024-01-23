@@ -4,17 +4,29 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.tp1.dao.LivreRepository;
+import com.example.tp1.dao.LocationRepository;
+import com.example.tp1.entity.Emprunteur;
 
 
 
 
 @Controller
 public class WebController {
+
+    @Autowired
+    private LivreRepository lr;
+
+    @Autowired
+    private LocationRepository er;
     
     // annotation
     @RequestMapping("/")
@@ -22,18 +34,42 @@ public class WebController {
         return "index"; // index = partie front
     }
 
-    @RequestMapping("/catalogue")
-    public String catalogue(Model model) {  //model = partie back
-        // list de livres
-        List<Livre> livres = new ArrayList<>();
-        livres.add(new Livre("Titre du Livre 1", "Auteur 1", "Édition 1", "Description du Livre 1"));
-        livres.add(new Livre("Titre du Livre 2", "Auteur 2", "Édition 2", "Description du Livre 2"));
-        livres.add(new Livre("Titre du Livre 3", "Auteur 3", "Édition 3", "Description du Livre 3"));
-        livres.add(new Livre("Titre du Livre 4", "Auteur 4", "Édition 4", "Description du Livre 4"));
+    @GetMapping("/catalogue")
+    public String showCatalog(Model model) {
 
-        
+        List<com.example.tp1.entity.Livre> livres = lr.findAll();
         model.addAttribute("livres", livres);
-        return "catalogue"; // index = partie front
+        return "catalogue";
+    }
+    
+
+    @GetMapping("/formulaire")
+    public String askBooking(Model model) {
+        
+        List<com.example.tp1.entity.Livre> livres = lr.findAll();
+        List<Emprunteur> emprunteurs = er.findAll();
+
+        model.addAttribute("livres", livres);
+        model.addAttribute("emprunteurs", emprunteurs);
+
+        return "formulaire";
+    }
+    @PostMapping("/emprunt")
+    public String saveBooking(
+        @RequestParam("choix_emprunteur") Long id_emprunteur,
+        @RequestParam("choix_livre") Long id_livre,
+        Model model){
+        Emprunteur inconnu = new Emprunteur();
+        inconnu.setNom("Inconnu");
+        Livre livreInconnu = new Livre();
+        livreInconnu.setTitre("Inconnu");
+
+        Emprunteur emprunteur = er.findById(id_emprunteur).orElse(inconnu);
+        Livre livre = lr.findById(id_livre).orElse(livreInconnu);
+
+        model.addAttribute("qui", emprunteur.getNom());
+        model.addAttribute("quoi", livre.getTitre());
+        return "emprunt";
     }
 
     @RequestMapping("/emprunt")
