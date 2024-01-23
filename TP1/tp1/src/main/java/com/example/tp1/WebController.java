@@ -1,7 +1,6 @@
 package com.example.tp1;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.tp1.dao.LivreRepository;
-import com.example.tp1.dao.LocationRepository;
+import com.example.tp1.dao.EmprunteurRepository;
 import com.example.tp1.entity.Emprunteur;
+import com.example.tp1.entity.Livre;
 
 
 
@@ -26,7 +26,7 @@ public class WebController {
     private LivreRepository lr;
 
     @Autowired
-    private LocationRepository er;
+    private EmprunteurRepository er;
     
     // annotation
     @RequestMapping("/")
@@ -95,6 +95,4 @@ public class WebController {
 
         return "confirmation";
     }
-
- 
 }

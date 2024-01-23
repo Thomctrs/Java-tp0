@@ -21,7 +21,7 @@
         <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
         <p>Merci pour votre confirmation!</p>
         <p>Nous avons bien reçu votre demande.</p>
-    
+        <!--
         <h1>Confirmation d'Emprunt</h1>
         <div th:if ="${nomEmprunteur == null or nomEmprunteur.isEmpty() or
             numeroEmprunteur == null or numeroEmprunteur.isEmpty() or
@@ -45,6 +45,8 @@
             <p><strong>Édition du livre:</strong> <span th:if="${editionLivre != null}" th:text="${editionLivre}"></span></p>
             <p><strong>Date de début d'emprunt:</strong> <span th:if="${dateDebutEmprunt != null}" th:text="${dateDebutEmprunt}"></span></p>
         </div>
+        !-->
+        <p th:text="${qui} + ' a emprunté ' + ${quoi}"></p>
 
     </main>
     <footer>

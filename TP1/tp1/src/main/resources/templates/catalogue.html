@@ -19,7 +19,8 @@
     <h1 id="titre_biblio">Catalogue</h1>
     <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
     <main>
-        <div th:each="livre : ${livres}" class="book">
+        <div th:each="livre : ${livres}"class ="book">
+        
             <h2 th:text="${livre.titre}"></h2>
             <p th:text="'Auteur: ' + ${livre.auteur}"></p>
             <p th:text="'Édition: ' + ${livre.edition}"></p>

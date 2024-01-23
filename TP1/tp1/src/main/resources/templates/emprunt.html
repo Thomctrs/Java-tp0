@@ -20,23 +20,18 @@
 
         <img th:src="@{img/biblio.jpg}" alt="Bibliothèque">
         <br>
-        <form action="/submit" method="post">
-            <label for="nomEmprunteur">Nom de l'emprunteur:</label>
-            <input type="text" id="nomEmprunteur" name="nomEmprunteur" >
+        <form action="/emprunt" method="post">
+            <h2>Nom de l'emprunteur</h2>
+            <select name="choix_emprunteur" id="choix_emprunteur">
+                <option th:each="emprunteur : ${emprunteurs}" th:value = "${emprunteur.id}" th:text="${emprunteur.nom}"></option>
+            </select>
     
-            <label for="numeroEmprunteur">Numéro d'emprunteur:</label>
-            <input type="text" id="numeroEmprunteur" name="numeroEmprunteur" >
+            <h2> Choix du livre</h2>
+            <select name="choix_livre" id="choix_livre">
+                <option th:each="livre : ${livres}" th:value = "${livre.id}" th:text="${livre.titre}"></option>
+            </select>
     
-            <label for="titreLivre">Titre du livre emprunté:</label>
-            <input type="text" id="titreLivre" name="titreLivre" >
-    
-            <label for="editionLivre">Édition du livre:</label>
-            <input type="text" id="editionLivre" name="editionLivre" >
-    
-            <label for="dateDebutEmprunt">Date de début d'emprunt:</label>
-            <input type="date" id="dateDebutEmprunt" name="dateDebutEmprunt" >
-    
-            <input type="submit" value="submit">
+            <button type="submit">Demande</button>
         </form>
     </main>
     <footer>
