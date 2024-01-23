@@ -59,8 +59,10 @@ public class WebController {
         @RequestParam("choix_emprunteur") Long id_emprunteur,
         @RequestParam("choix_livre") Long id_livre,
         Model model){
+            
         Emprunteur inconnu = new Emprunteur();
         inconnu.setNom("Inconnu");
+
         Livre livreInconnu = new Livre();
         livreInconnu.setTitre("Inconnu");
 
